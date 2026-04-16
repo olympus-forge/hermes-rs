@@ -1,0 +1,35 @@
+[app]
+name = "Hermes Core"
+host = "0.0.0.0"
+port = 8080
+env = "development"
+
+[http]
+request_timeout_secs = 15
+max_body_size_mb = 5
+
+[log]
+level = "info"
+format = "json"
+
+[email]
+provider = "smtp"
+from_name = "Hermes Core"
+from_email = "noreply@example.com"
+
+[email.smtp]
+host = "mailpit"
+port = 1025
+username = "change_me"
+password = "change_me"
+pool_size = 5
+starttls = true
+
+[retry]
+max_attempts = 3
+backoff_secs = 10
+worker_interval_secs = 30
+
+[rate_limit]
+enabled = false
+requests_per_minute = 60

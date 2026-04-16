@@ -1,0 +1,133 @@
+mail-service-rs/
+├── Cargo.toml
+├── Cargo.lock
+├── .env.example
+├── .gitignore
+├── Dockerfile
+├── docker-compose.yml
+├── README.md
+├── rustfmt.toml
+├── clippy.toml
+│
+├── configs/
+│   ├── default.toml
+│   ├── development.toml
+│   └── production.toml
+│
+├── migrations/
+│   ├── 0001_create_email_logs.sql
+│   ├── 0002_create_retry_jobs.sql
+│   └── 0003_add_indexes.sql
+│
+├── scripts/
+│   ├── dev.sh
+│   ├── migrate.sh
+│   └── test.sh
+│
+├── docs/
+│   ├── architecture.md
+│   ├── api.md
+│   └── sequence-diagram.md
+│
+├── src/
+│   ├── main.rs
+│   ├── lib.rs
+│   │
+│   ├── bootstrap/
+│   │   ├── mod.rs
+│   │   ├── app.rs
+│   │   ├── router.rs
+│   │   ├── server.rs
+│   │   ├── state.rs
+│   │   ├── logger.rs
+│   │   └── shutdown.rs
+│   │
+│   ├── config/
+│   │   ├── mod.rs
+│   │   └── settings.rs
+│   │
+│   ├── domain/
+│   │   ├── mod.rs
+│   │   ├── email.rs
+│   │   ├── provider.rs
+│   │   ├── retry_job.rs
+│   │   └── status.rs
+│   │
+│   ├── dto/
+│   │   ├── mod.rs
+│   │   ├── request.rs
+│   │   └── response.rs
+│   │
+│   ├── handlers/
+│   │   ├── mod.rs
+│   │   ├── health.rs
+│   │   ├── email.rs
+│   │   ├── metrics.rs
+│   │   └── admin.rs
+│   │
+│   ├── services/
+│   │   ├── mod.rs
+│   │   ├── email_service.rs
+│   │   ├── retry_service.rs
+│   │   └── template_service.rs
+│   │
+│   ├── providers/
+│   │   ├── mod.rs
+│   │   ├── smtp.rs
+│   │   ├── sendgrid.rs
+│   │   ├── ses.rs
+│   │   └── mock.rs
+│   │
+│   ├── repository/
+│   │   ├── mod.rs
+│   │   ├── email_log_repo.rs
+│   │   ├── retry_job_repo.rs
+│   │   └── template_repo.rs
+│   │
+│   ├── worker/
+│   │   ├── mod.rs
+│   │   ├── retry_worker.rs
+│   │   ├── scheduler.rs
+│   │   └── dead_letter_worker.rs
+│   │
+│   ├── middleware/
+│   │   ├── mod.rs
+│   │   ├── auth.rs
+│   │   ├── request_id.rs
+│   │   ├── logging.rs
+│   │   ├── timeout.rs
+│   │   └── rate_limit.rs
+│   │
+│   ├── errors/
+│   │   ├── mod.rs
+│   │   ├── app_error.rs
+│   │   └── http_error.rs
+│   │
+│   ├── observability/
+│   │   ├── mod.rs
+│   │   ├── metrics.rs
+│   │   └── tracing.rs
+│   │
+│   └── utils/
+│       ├── mod.rs
+│       ├── time.rs
+│       ├── validator.rs
+│       ├── crypto.rs
+│       └── id.rs
+│
+├── templates/
+│   ├── welcome.html
+│   ├── reset_password.html
+│   └── invoice.html
+│
+├── tests/
+│   ├── common/
+│   │   ├── mod.rs
+│   │   └── test_app.rs
+│   ├── health_test.rs
+│   ├── email_api_test.rs
+│   ├── retry_test.rs
+│   └── integration_test.rs
+│
+└── benches/
+    └── send_email_benchmark.rs
