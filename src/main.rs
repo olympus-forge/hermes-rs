@@ -1,4 +1,3 @@
-use std::process;
 mod bootstrap;
 mod config;
 mod domain;
@@ -8,6 +7,10 @@ mod providers;
 mod repository;
 mod services;
 
-fn main() {
-    process::exit(0);
+#[tokio::main]
+async fn main() {
+    if let Err(e) = bootstrap::app::run().await {
+        eprintln!("Application error: {e}");
+        std::process::exit(1);
+    }
 }

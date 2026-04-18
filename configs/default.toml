@@ -1,7 +1,8 @@
 [app]
-name = "Hermes Core"
-host = "0.0.0.0"
-port = 8080
+app_name = "Hermes Core"
+app_host = "0.0.0.0"
+app_port = 8080
+app_version = "0.1.0"
 env = "development"
 
 [http]
@@ -9,8 +10,8 @@ request_timeout_secs = 15
 max_body_size_mb = 5
 
 [log]
-level = "info"
-format = "json"
+log_level = "info"
+log_format = "json"
 
 [email]
 provider = "smtp"

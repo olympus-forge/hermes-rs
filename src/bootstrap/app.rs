@@ -1,6 +1,6 @@
 use anyhow::Result;
 
-use crate::bootstrap::{logger, router, server, shutdown, state::AppState};
+use crate::bootstrap::{logger, router, server, state::AppState};
 use crate::config::settings::Settings;
 
 pub async fn run() -> Result<()> {

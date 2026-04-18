@@ -4,14 +4,14 @@ use axum::{
 };
 
 use crate::bootstrap::state::AppState;
-use crate::handlers::{health_check, email};
+use crate::handlers::{health, email};
 
 pub fn build(state: AppState) -> Router {
     Router::new().
     // health check endpoint
-    route("/health", get(health_check)).
+    route("/health", get(health::check)).
     // email sending endpoint
-    route("/email", post(email)).
+    route("/email", post(email::send)).
     // add shared application state
     with_state(state)
 }   
