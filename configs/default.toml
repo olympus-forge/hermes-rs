@@ -4,6 +4,7 @@ app_host = "0.0.0.0"
 app_port = 8080
 app_version = "0.1.0"
 env = "development"
+debug = true
 
 [http]
 request_timeout_secs = 15
@@ -21,8 +22,8 @@ from_email = "noreply@example.com"
 [email.smtp]
 host = "mailpit"
 port = 1025
-username = "change_me"
-password = "change_me"
+username = ""
+password = ""
 pool_size = 5
 starttls = true
 
