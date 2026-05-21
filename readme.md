@@ -93,19 +93,43 @@ Configuration is managed via `configs/default.toml`. You can override values usi
 ```toml
 # configs/default.toml (example)
 
-[server]
-host = "0.0.0.0"
-port = 8080
+[app]
+app_name = "Hermes Core"
+app_host = "0.0.0.0"
+app_port = 8080
+app_version = "0.1.0"
+env = "development"
+debug = true
+
+[http]
+request_timeout_secs = 15
+max_body_size_mb = 5
+
+[log]
+log_level = "info"
+log_format = "json"
 
 [email]
-provider = "smtp"         # or "sendgrid", "mailgun", etc.
-from_address = "no-reply@example.com"
+provider = "smtp"
+from_name = "Hermes Core"
+from_email = "noreply@example.com"
 
-[smtp]
-host = "smtp.example.com"
-port = 587
-username = "user@example.com"
-password = "secret"
+[email.smtp]
+host = "mailpit"
+port = 1025
+username = ""
+password = ""
+pool_size = 5
+starttls = true
+
+[retry]
+max_attempts = 3
+backoff_secs = 10
+worker_interval_secs = 30
+
+[rate_limit]
+enabled = false
+requests_per_minute = 60
 ```
 
 > ⚠️ Never commit credentials to version control. Use environment variables or a secrets manager in production.
