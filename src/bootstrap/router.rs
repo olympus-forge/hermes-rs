@@ -11,7 +11,7 @@ pub fn build(state: AppState) -> Router {
     // health check endpoint
     route("/health-check", get(health::check)).
     // email sending endpoint
-    route("/email", post(email::send)).
+    route("/email/send", post(email::send)).
     // add shared application state
     with_state(state)
 }   

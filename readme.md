@@ -138,7 +138,7 @@ requests_per_minute = 60
 
 ## 📡 API Endpoints
 
-### `GET /health`
+### `GET /health-check`
 
 Returns the health status of the service.
 
@@ -160,8 +160,7 @@ Sends an email.
 {
   "to": "recipient@example.com",
   "subject": "Hello from Hermes",
-  "body": "This is the email body.",
-  "html": "<p>This is the <b>HTML</b> body.</p>"
+  "body": "This is the email body."
 }
 ```
 
